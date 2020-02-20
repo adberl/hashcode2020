@@ -28,10 +28,12 @@ for line in all_data:
 		books = [int(item) for item in line.rstrip().split(' ')]
 		LIBS.append( (libinfo, books) )
 	idx += 1
-
+	
 for lib in LIBS:
 	lib[1].sort(key=lambda x: SCORES[x])
+	print(lib[1])
 
+LIBS.sort(key=lambda x: LIBS[x][0][1])
 
 #print(SCORES)
 #print(SCORES[LIBS[1][1][3]])
@@ -46,6 +48,7 @@ for day in range(TOTAL_DAYS):
 		for _ in range(LIBS[alib][0][2]):
 			try:
 				v_libs[alib].append(LIBS[alib][1].pop())
+				print(v_libs)
 			except:
 				break
 	if(is_proc <= 0):
