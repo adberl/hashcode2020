@@ -1,4 +1,4 @@
-INPUT_FILE = "f_libraries_of_the_world.txt"
+INPUT_FILE = "a_example.txt"
 FULL_PATH = "inputs/"+INPUT_FILE
 
 all_data = open(FULL_PATH, 'r').readlines()
@@ -28,6 +28,10 @@ for line in all_data:
 		books = [int(item) for item in line.rstrip().split(' ')]
 		LIBS.append( (libinfo, books) )
 	idx += 1
+
+for lib in LIBS:
+	lib[1].sort(key=lambda x: SCORES[x])
+
 
 #print(SCORES)
 #print(SCORES[LIBS[1][1][3]])
